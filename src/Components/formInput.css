@@ -1,0 +1,22 @@
+
+.formInput{
+    display: flex;
+    flex-direction: column;
+    width: 20vw;
+}
+
+input{
+    padding: 1.2vw;
+    margin: 0.8vw 0vw;
+    border-radius: 0.5vw;
+    border: 0.1vw solid grey;
+}
+
+input::placeholder {
+    font-size: 1vw;
+  }
+
+label{
+    font-size: 1vw;
+    color: gray;
+}
