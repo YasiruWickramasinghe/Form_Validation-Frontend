@@ -1,14 +1,12 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import FormInput from "../Components/FormInput";
-import "./Register.css";
+import "./Login.css";
 
-const Register = () => {
+const Login = () => {
   const [values, setValues] = useState({
     username: "",
-    email: "",
     password: "",
-    confirmpassword: "",
   });
 
   const inputs = [
@@ -24,15 +22,6 @@ const Register = () => {
       required: true,
     },
     {
-      id: 2,
-      name: "email",
-      type: "email",
-      placeholder: "Email",
-      errorMessage: "It should be a valid email address!",
-      label: "Email",
-      required: true,
-    },
-    {
       id: 3,
       name: "password",
       type: "password",
@@ -41,16 +30,6 @@ const Register = () => {
         "Password should be 8-20 characters and include at least 1 letter 1 number and 1 special character!",
       label: "Password",
       pattern: `^(?=.*[0-9])(?=.*[a-zA-Z])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{8,20}$`,
-      required: true,
-    },
-    {
-      id: 4,
-      name: "confirmpassword",
-      type: "password",
-      placeholder: "Confirm Password",
-      errorMessage: "password don't match!",
-      label: "Confirm Password",
-      pattern: values.password,
       required: true,
     },
   ];
@@ -64,9 +43,9 @@ const Register = () => {
   };
 
   return (
-    <div className="register">
+    <div className="login">
       <form onSubmit={hadleSubmit}>
-        <h1>Register</h1>
+        <h1>Login</h1>
         {inputs.map((input) => (
           <FormInput
             key={input.id}
@@ -75,13 +54,16 @@ const Register = () => {
             onChange={onChange}
           />
         ))}
-        <button>Register</button>
+        <button>Login</button>
         <p>
-          Already have an account? <Link to={"/"}>Sign In</Link>
+          Dont't have an account? <Link to={"/register"}>Sign Up</Link>
         </p>
+        <Link to={"/"}>
+          <p>Fogot your password</p>
+        </Link>
       </form>
     </div>
   );
 };
 
-export default Register;
+export default Login;
