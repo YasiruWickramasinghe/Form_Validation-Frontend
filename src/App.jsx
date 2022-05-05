@@ -7,13 +7,17 @@ import {
   Route,
   // Navigate,
 } from "react-router-dom";
+import Home from "./Pages/Home";
+import Model from "./Components/Model";
 
 function App() {
   return (
     <Router>
       <Routes>
-        <Route exact path="/" element={<Login />} />
+        <Route path="/" element={<Home />} />
         <Route path="/register" element={<Register />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/model" element={<Model />} />
       </Routes>
     </Router>
   );

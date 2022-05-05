@@ -1,7 +1,50 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import FormInput from "../Components/FormInput";
-import "./Login.css";
+import styled from "styled-components";
+import Navbar from "../Layouts/Navbar";
+
+const Container = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100vh;
+  background: linear-gradient(to left, rgb(192, 192, 191), rgb(252, 253, 171))
+    right;
+`;
+const Form = styled.form`
+  background-color: white;
+  padding: 1vw 4vw;
+  border-radius: 1vw;
+  border: 0.5vw solid;
+  border-color: #ffd90f #fce98d #ffd90f #fce98d;
+`;
+const Title = styled.h1`
+  color: #ffd90f;
+  text-align: center;
+  font-size: 2vw;
+  font-weight: bolder;
+`;
+const Button = styled.button`
+  width: 100%;
+  height: 4vw;
+  padding: 1vw;
+  border: none;
+  background-color: #ffd90f;
+  color: grey;
+  font-weight: bold;
+  border-radius: 0.5vw;
+  font-size: 1.2vw;
+  cursor: pointer;
+  margin-top: 1vw;
+  margin-bottom: 1vw;
+`;
+const Paragraph = styled.p`
+  text-align: center;
+  font-size: 1vw;
+  color: grey;
+`;
 
 const Login = () => {
   const [values, setValues] = useState({
@@ -43,25 +86,29 @@ const Login = () => {
   };
 
   return (
-    <div className="login">
-      <form onSubmit={hadleSubmit}>
-        <h1>Login</h1>
-        {inputs.map((input) => (
-          <FormInput
-            key={input.id}
-            {...input}
-            value={values[input.name]}
-            onChange={onChange}
-          />
-        ))}
-        <button>Login</button>
-        <p>
-          Dont't have an account? <Link to={"/register"}>Sign Up</Link>
-        </p>
-        <Link to={"/"}>
-          <p>Fogot your password</p>
-        </Link>
-      </form>
+    <div>
+      <Navbar />
+      <Container>
+        <Form onSubmit={hadleSubmit}>
+          <Title>LOGIN</Title>
+          {inputs.map((input) => (
+            <FormInput
+              key={input.id}
+              {...input}
+              value={values[input.name]}
+              onChange={onChange}
+            />
+          ))}
+          <Button>Login</Button>
+          <Paragraph>
+            Dont't have an account? <Link to={"/register"}>Sign Up</Link>
+          </Paragraph>
+
+          <Paragraph>
+            <Link to={"/"}>Fogot your password</Link>
+          </Paragraph>
+        </Form>
+      </Container>
     </div>
   );
 };

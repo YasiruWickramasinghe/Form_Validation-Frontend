@@ -1,32 +1,32 @@
 
-.formInput{
+/* .formInput{
     display: flex;
     flex-direction: column;
     width: 20vw;
-}
+} */
 
 input{
     padding: 1vw;
     margin: 0.8vw 0vw;
     border-radius: 0.5vw;
-    border: 0.1vw solid grey;
+    border: 0.1vw solid #FFD90F;
 }
 
 input::placeholder {
     font-size: 1vw;
   }
 
-label{
+/* label{
     font-size: 1vw;
     color: gray;
-}
+} */
 
-span{
+/* span{
     font-size: 1vw;
     padding: 0.1vw;
     color: red;
     display: none;
-}
+} */
 
 input:invalid[focused="true"]{
     border: 0.1vw solid red
